@@ -141,7 +141,7 @@ const bigProjects = {
   subtitle: "", // "SOME STARTUPS AND COMPANIES THAT I HELPED TO CREATE THEIR TECH",
   projects: [
     {
-      image: require("./assets/images/nextuLogo.webp"),
+      // image: require("./assets/images/nextuLogo.webp"),
       link: "https://harishm72.github.io/shop-app",
     },
   ],
