@@ -27,16 +27,18 @@
             <h1 class="h1"> Hello there Welcome!. 👋</h1>
             <h1 class="h2">I am <u>Harish</u> and this is my Portfolio.</h1>
         </section>
-        <section id="projects-section" class="projects-section">
-
-        </section>
+        <h3 style="padding: 0 24px; font-size: 1.5rem;">Personal projects</h3>
+        <section id="projects-section" class="projects-section"></section>
+        <hr />
+        <h3 style="padding: 4px 24px; font-size: 1.5rem;">Client projects</h3>
+        <section id="projects-section-client" class="projects-section"></section>
     </main>
 
 </body>
 <script type="module">
     window.onload = function () {
 
-        const projects = [{
+        var projects = [{
             name: 'E-Commerce Site',
             description: `This is a clone of <a target="_blank" href="https://shop.polymer-project.org/">Polymer-shop</a>.`,
             link: 'https://harishm72.github.io/shop-app',
@@ -51,7 +53,7 @@
             snapshot: './images/trello-clone.png',
             primaryTech: ["ReactJS", "HTML", "CSS", "Backend - Trello Developer API"],
             otherTech: [""],
-        }, 
+        },
         {
             name: 'Tribute page',
             description: 'Built this page as part of FreeCodeCamp Responsive web design certification projects. 1/5',
@@ -89,7 +91,13 @@
             otherTech: [""],
         }]
 
-        const projectCard = (project) => (`
+        var clientProjects = ['/images/treniq/1.png', '/images/treniq/2.png',
+            '/images/scripbox/1.png', '/images/scripbox/2.png', '/images/scripbox/3.png',
+            '/images/scripbox/4.png', '/images/scripbox/5.png',
+            '/images/scripbox/7.png', '/images/scripbox/8.png',
+        ]
+
+        var projectCard = (project) => (`
             <div class="p-img"><img src="${project.snapshot}" height="400px" /></div>
             <div class="p-meta">
                 <a class="title-link" href="${project.link}" target="_blank">
@@ -102,15 +110,46 @@
                 </ul>
             </div>`)
 
-        const section = document.getElementById('projects-section');
+
+        var imageCard = (path) => {
+            return `<div class="p-img popup"><img src="${path}" height="400px" />
+                <div class="close-btn">x</div></div>
+            `
+        }
+
+        var section = document.getElementById('projects-section');
+        var clientSection = document.getElementById('projects-section-client');
 
         for (let item of projects) {
-            const card = document.createElement('div');
+            var card = document.createElement('div');
             card.className = "p-card";
             card.innerHTML = projectCard(item);
             section.appendChild(card);
+        }
+
+        for (let item of clientProjects) {
+            const imgCard = document.createElement('div');
+            imgCard.className = "p-card img-popup";
+            imgCard.innerHTML = imageCard(item);
+            clientSection.appendChild(imgCard);
+        }
+
+        var imgCards = document.getElementsByClassName('p-img popup');
+
+        for (let item of imgCards) {
+            item.addEventListener('click', function () {
+                item.parentElement.classList.add('img-modal');
+                item.lastChild.addEventListener('click', function (e) {
+                item.parentElement.classList.remove('img-modal');
+                e.stopPropagation();
+                console.log('here');
+            })
+            });
+
+           
 
         }
+
     }
 
 
