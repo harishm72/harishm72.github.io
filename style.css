@@ -168,6 +168,7 @@ a {
   margin: 0 auto;
   grid-gap: 40px;
   padding: 24px;
+  position: relative;
 }
 
 .p-card {
@@ -190,7 +191,6 @@ a {
 .p-img {
   max-width: 100%;
   margin: 0 auto;
-  position: relative;
 }
 
 .p-img img {
@@ -224,6 +224,8 @@ a {
   left: 50%;
   z-index: 1;
   transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 90vh;
 }
 
 .close-btn {
