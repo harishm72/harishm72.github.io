@@ -191,6 +191,7 @@ a {
 .p-img {
   max-width: 100%;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .p-img img {
@@ -225,7 +226,7 @@ a {
   z-index: 1;
   transform: translate(-50%, -50%);
   width: 90vw;
-  height: 90vh;
+  max-height: 95%;
 }
 
 .close-btn {
